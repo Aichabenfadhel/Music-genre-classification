@@ -1,0 +1,43 @@
+version: '3.9'
+
+services:
+  vgg-backend:
+    build: 
+      context: ./Backend/vgg_service
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - MODEL_TYPE=vgg
+    networks:
+      - music-network
+
+  svm-backend:
+    build: 
+      context: ./Backend/svm_service
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    environment:
+      - MODEL_TYPE=svm
+    networks:
+      - music-network
+
+  frontend:
+    build: 
+      context: ./music-classifier_Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    depends_on:
+      - vgg-backend
+      - svm-backend
+    environment:
+      - VGG_API_URL=http://vgg-backend:5000
+      - SVM_API_URL=http://svm-backend:5001
+    networks:
+      - music-network
+
+networks:
+  music-network:
+    driver: bridge

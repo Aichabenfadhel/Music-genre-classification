@@ -1,0 +1,52 @@
+/* Container Styling for the Home Page */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f9f9f9; /* Light gray background */
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .btn {
+    background-color: #ff7f50; /* Orange button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+    width: 250px; /* Fixed width for consistency */
+  }
+  
+  .btn:hover {
+    background-color: #e76f3d; /* Darker shade on hover */
+  }
+  
+  .btn-svm {
+    background-color: #2a9d8f; /* Teal button for SVM */
+  }
+  
+  .btn-svm:hover {
+    background-color: #1f7e6d; /* Darker shade on hover */
+  }
+  
+  .btn-vgg {
+    background-color: #ff6347; /* Tomato color for VGG */
+  }
+  
+  .btn-vgg:hover {
+    background-color: #e53e3e; /* Darker shade on hover */
+  }
+  

@@ -1,0 +1,22 @@
+<div class="container">
+    <!-- Back Button -->
+    <button routerLink="/" class="btn btn-back">Back to Home</button>
+  
+    <!-- Title -->
+    <h1 class="title">Upload Audio File</h1>
+  
+    <!-- File Upload Input -->
+    <div class="file-input-container">
+      <label for="file-upload" class="file-label">Choose Audio File</label>
+      <input type="file" id="file-upload" (change)="onFileSelected($event)" class="file-input" />
+    </div>
+  
+    <!-- Predict Button -->
+    <button (click)="onUpload()" class="btn btn-upload">Predict Genre</button>
+  
+    <!-- Predicted Genre -->
+    <p *ngIf="predictedGenre" class="predicted-genre">
+      Predicted Genre: {{ predictedGenre }}
+    </p>
+  </div>
+  

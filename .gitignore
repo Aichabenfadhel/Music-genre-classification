@@ -1,0 +1,8 @@
+*.h5
+./Backend/vgg_services/*.h5
+Backend/vgg_services/*.h5
+*.pkl
+../Backend/svm_services/*.pkl
+
+Backend/svm_services/*.pkl
+Backend/vgg_service/vgg19_music_genre_classification.h5

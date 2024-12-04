@@ -1,0 +1,95 @@
+/* Container styling for the whole page */
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+  padding: 20px;
+}
+
+h2.title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: #ff7f50; /* Orange button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #e76f3d; /* Darker shade on hover */
+}
+
+.btn-back {
+  background-color: #2a9d8f;
+}
+
+.btn-back:hover {
+  background-color: #1f7e6d;
+}
+
+.file-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.file-label {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 500;
+}
+
+.file-input {
+  padding: 10px;
+  font-size: 1rem;
+  color: #333;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  width: 250px;
+  text-align: center;
+}
+
+.file-input:focus {
+  outline: none;
+  border-color: #ff7f50;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #ff7f50;
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #2a9d8f;
+  font-weight: 500;
+}
+
+.error-message {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: red;
+  font-weight: bold;
+}
