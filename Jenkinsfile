@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout Code and repository') {
             steps {
                 echo 'Checking out repository...'
-                git branch: 'main', url: 'https://github.com/Aichabenfadhel/Music-genre-classification.git'
+                git branch: 'master', url: 'https://github.com/Aichabenfadhel/Music-genre-classification.git'
             }
         }
 
