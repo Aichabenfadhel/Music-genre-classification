@@ -12,7 +12,7 @@ pipeline {
         stage('Build and Start Services with Docker Compose') {
             steps {
                 script {
-                    // Directly reference the docker-compose.yml file in the repository
+                    
                     if (isUnix()) {
                         sh 'docker-compose -f docker-compose.yml up --build -d'
                     } else {
@@ -38,7 +38,7 @@ pipeline {
         stage('Push Docker Images') {
             steps {
                 script {
-                    // Push Docker images (disable sandbox for this step)
+                    
                     if (isUnix()) {
                         sh 'docker-compose push'
                     } else {
@@ -50,7 +50,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                // Deploy the application
+                
                 echo 'Deploying app...'
             }
         }

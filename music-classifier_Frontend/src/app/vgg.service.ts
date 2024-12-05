@@ -7,19 +7,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class VggService {
-  private apiUrl = 'http://localhost:5000/vgg/predict';  // Flask API URL (adjust if necessary)
+  private apiUrl = 'http://localhost:5000/vgg/predict';  
 
   constructor(private http: HttpClient) {}
 
-  // Convert audio file to spectrogram (this is a mock function for now)
   convertAudioToSpectrogram(file: File): Promise<Blob> {
     return new Promise((resolve, reject) => {
-      // Create a canvas to simulate spectrogram (you can replace this with actual conversion logic)
+      
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
       if (!ctx) {
         reject('Failed to get canvas context');
-        return; // Stop further execution if ctx is null
+        return; 
       }
   
       canvas.width = 224;

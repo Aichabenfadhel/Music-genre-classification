@@ -9,6 +9,9 @@ services:
       - "5000:5000"
     environment:
       - MODEL_TYPE=vgg
+      - MODEL_PATH=/app/models/vgg19_music_genre_classification.h5
+    volumes:
+      - ./Backend/vgg_service/vgg19_music_genre_classification.h5:/app/models/vgg19_music_genre_classification.h5
     networks:
       - music-network
 

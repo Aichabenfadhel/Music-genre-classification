@@ -24,5 +24,8 @@ EXPOSE 5000
 # Set environment variable to indicate Flask is in production
 ENV FLASK_ENV=production
 
+# Ensure the shared volume is accessible to the application
+ENV MODEL_PATH=/app/models/vgg19_music_genre_classification.h5
+
 # Command to run the Flask application
 CMD ["python", "app.py"]
