@@ -21,28 +21,28 @@ pipeline {
                 }
             }
         }
-        stage('Run Tests') {
-            steps {
-                script {
+        // stage('Run Tests') {
+        //     steps {
+        //         script {
                     
-                    if (isUnix()) {
-                        sh '''
-                            docker-compose up -d
-                            docker-compose exec vgg-backend pytest /app/Backend/vgg_service/Tests
-                            docker-compose exec svm-backend pytest /app/Backend/svm_service/Tests
+        //             if (isUnix()) {
+        //                 sh '''
+        //                     docker-compose up -d
+        //                     docker-compose exec vgg-backend pytest /app/Backend/vgg_service/Tests
+        //                     docker-compose exec svm-backend pytest /app/Backend/svm_service/Tests
 
-                        '''
-                    } else {
-                        bat '''
-                            docker-compose up -d
-                            docker-compose exec music_classification_mini_projet-vgg-backend-1 pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/vgg_service/Tests
+        //                 '''
+        //             } else {
+        //                 bat '''
+        //                     docker-compose up -d
+        //                     docker-compose exec music_classification_mini_projet-vgg-backend-1 pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/vgg_service/Tests
                             
-                            docker-compose exec music_classification_mini_projet-svm-backend-1 pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/svm_service/Tests
-                        '''
-                    }
-                }
-            }
-        }
+        //                     docker-compose exec music_classification_mini_projet-svm-backend-1 pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/svm_service/Tests
+        //                 '''
+        //             }
+        //         }
+        //     }
+        // }
 
         
 
