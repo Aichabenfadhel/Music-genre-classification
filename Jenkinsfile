@@ -21,6 +21,28 @@ pipeline {
                 }
             }
         }
+        stage('Run Tests') {
+            steps {
+                script {
+                    
+                    if (isUnix()) {
+                        sh '''
+                            # Run tests in vgg-backend container
+                            docker exec <vgg-backend-container> pytest /app/Backend/vgg_service/Tests
+                            # Run tests in svm-backend container
+                            docker exec <svm-backend-container> pytest /app/Backend/svm_service/Tests
+                        '''
+                    } else {
+                        bat '''
+                            REM Run tests in vgg-backend container
+                            docker exec <vgg-backend-container> pytest C:/path/to/your/project/Backend/vgg_service/Tests
+                            REM Run tests in svm-backend container
+                            docker exec <svm-backend-container> pytest C:/path/to/your/project/Backend/svm_service/Tests
+                        '''
+                    }
+                }
+            }
+        }
 
         
 
