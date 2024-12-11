@@ -33,7 +33,7 @@ pipeline {
                             REM Run tests in svm-backend container
                             docker-compose exec svm-backend pytest C:/path/to/your/project/Backend/svm_service/Tests
                         '''
-                    }
+                    
                 }
             }
         }
