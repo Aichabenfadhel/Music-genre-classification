@@ -34,9 +34,9 @@ pipeline {
                     } else {
                         bat '''
                             
-                            docker-compose exec vgg-backend pytest C:/Users/user/Desktop/3eme année Ensit/ML/Music_classification_Mini_projet/Backend/vgg_service/Tests
+                            docker-compose exec vgg-backend pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/vgg_service/Tests
                             
-                            docker-compose exec svm-backend pytest C:/Users/user/Desktop/3eme année Ensit/ML/Music_classification_Mini_projet/Backend/svm_service/Tests
+                            docker-compose exec svm-backend pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/svm_service/Tests
                         '''
                     }
                 }
