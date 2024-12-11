@@ -77,7 +77,7 @@ def predict():
             response = {
                 "predicted_genre": genre_name,
                 "confidence": confidence
-            }
+            } 
 
         return jsonify({"predictions": response})
 
