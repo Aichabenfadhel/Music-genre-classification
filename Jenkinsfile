@@ -18,6 +18,7 @@ pipeline {
                     } else {
                         bat 'docker-compose -f docker-compose.yml up --build -d'
                     }
+                    sleep(time: 60, unit: 'SECONDS')
                 }
             }
         }

@@ -12,6 +12,7 @@ services:
       - MODEL_PATH=/app/models/vgg19_music_genre_classification.h5
     volumes:
       - ./Backend/vgg_service/vgg19_music_genre_classification.h5:/app/models/vgg19_music_genre_classification.h5
+      - ./Backend/vgg_service/Tests:/app/tests
     networks:
       - music-network
 
@@ -21,6 +22,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5001:5001"
+    volumes:
+      - ./Backend/svm_service/Tests:/app/tests
     environment:
       - MODEL_TYPE=svm
     networks:
