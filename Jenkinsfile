@@ -27,14 +27,6 @@ pipeline {
                 script {
                     echo 'Running tests...'
 
-                    if (isUnix()) {
-                        sh '''
-                            # Run tests in vgg-backend container
-                            docker-compose exec vgg-backend pytest /app/Backend/vgg_service/Tests
-                            # Run tests in svm-backend container
-                            docker-compose exec svm-backend pytest /app/Backend/svm_service/Tests
-                        '''
-                    } else {
                         bat '''
                             REM Run tests in vgg-backend container
                             docker-compose exec vgg-backend pytest C:/path/to/your/project/Backend/vgg_service/Tests
