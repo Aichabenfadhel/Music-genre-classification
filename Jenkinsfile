@@ -18,7 +18,6 @@ pipeline {
                     } else {
                         bat 'docker-compose -f docker-compose.yml up --build -d'
                     }
-                    sleep(time: 60, unit: 'SECONDS')
                 }
             }
         }
@@ -35,9 +34,9 @@ pipeline {
                     } else {
                         bat '''
                             
-                            docker-compose exec vgg-backend pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/vgg_service/Tests
+                            docker-compose exec music_classification_mini_projet-vgg-backend-1 pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/vgg_service/Tests
                             
-                            docker-compose exec svm-backend pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/svm_service/Tests
+                            docker-compose exec music_classification_mini_projet-svm-backend-1 pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/svm_service/Tests
                         '''
                     }
                 }
