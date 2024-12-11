@@ -35,9 +35,9 @@ pipeline {
                     } else {
                         bat '''
                             REM Run tests in vgg-backend container
-                            docker exec <vgg-backend-container> pytest C:/path/to/your/project/Backend/vgg_service/Tests
+                            docker exec <vgg-backend-container> pytest C:/Users/user/Desktop/3eme année Ensit/ML/Music_classification_Mini_projet/Backend/vgg_service/Tests
                             REM Run tests in svm-backend container
-                            docker exec <svm-backend-container> pytest C:/path/to/your/project/Backend/svm_service/Tests
+                            docker exec <svm-backend-container> pytest C:/Users/user/Desktop/3eme année Ensit/ML/Music_classification_Mini_projet/Backend/svm_service/Tests
                         '''
                     }
                 }
