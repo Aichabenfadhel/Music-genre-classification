@@ -1,6 +1,10 @@
 # Use an official Python image as the base image
 FROM python:3.9-slim
 
+# Set environment variables for Python
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
 # Set the working directory in the container
 WORKDIR /app
 
@@ -14,6 +18,9 @@ COPY requirements.txt .
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Install pytest for testing (optional, if tests are to be run in the container)
+RUN pip install --no-cache-dir pytest
 
 # Copy the entire Flask application into the container
 COPY . .

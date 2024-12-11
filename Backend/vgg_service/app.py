@@ -9,13 +9,12 @@ from io import BytesIO
 from flask_cors import CORS 
 
 
-# Initialize Flask app
 app = Flask(__name__)
 
 CORS(app)
 CORS(app, resources={r"/vgg/predict": {"origins": "http://localhost:4200"}})
-# Load the VGG19 model (adjust the path if using a custom-trained model)
-MODEL_PATH = './vgg19_music_genre_classification.h5'  # Replace with your model's path
+
+MODEL_PATH = './vgg19_music_genre_classification.h5'  
 if os.path.exists(MODEL_PATH):
     model = load_model(MODEL_PATH)
     print("Custom VGG19 model loaded successfully.")
@@ -23,10 +22,8 @@ else:
     model = VGG19(weights='imagenet')
     print("Pretrained VGG19 model loaded successfully.")
 
-# Define image size expected by the model
 IMG_SIZE = (224, 224)
 
-# Genre map (Replace with actual genres from your dataset)
 GENRE_MAP = {
     0: 'blues',
     1: 'classical',
@@ -47,7 +44,7 @@ def home():
 @app.route('/vgg/predict', methods=['POST'])
 def predict():
     """Endpoint to make predictions."""
-    # Check if an image file is sent
+   
     if 'file' not in request.files:
         return jsonify({'error': 'No file provided. Please upload an image.'}), 400
     
@@ -56,28 +53,26 @@ def predict():
         return jsonify({'error': 'No file selected for uploading.'}), 400
 
     try:
-        # Convert the uploaded file to a file-like object and load the image
+        
         image = load_img(BytesIO(file.read()), target_size=IMG_SIZE)
 
-        # Preprocess the image
         image_array = img_to_array(image)
         image_array = np.expand_dims(image_array, axis=0)
         image_array = preprocess_input(image_array)
 
-        # Perform prediction
         predictions = model.predict(image_array)
 
         if model.input_shape[1:] == (224, 224, 3) and predictions.shape[1] == 1000:
-            # For pre-trained ImageNet VGG19 model
+            
             decoded_predictions = decode_predictions(predictions, top=3)
             response = [
                 {"genre": pred[1], "description": pred[1], "confidence": float(pred[2])}
                 for pred in decoded_predictions[0]
             ]
         else:
-            # For custom-trained model
+            
             predicted_class_index = np.argmax(predictions, axis=1).tolist()[0]
-            genre_name = GENRE_MAP.get(predicted_class_index, 'Unknown')  # Get the genre name
+            genre_name = GENRE_MAP.get(predicted_class_index, 'Unknown')  
             confidence = float(predictions[0][predicted_class_index])
             response = {
                 "predicted_genre": genre_name,
@@ -89,6 +84,6 @@ def predict():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-# Run Flask app
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
