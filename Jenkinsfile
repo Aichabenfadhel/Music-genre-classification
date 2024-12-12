@@ -35,9 +35,9 @@ pipeline {
                     } else {
                         bat '''
                            
-                            pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/vgg_service/Tests
+                            C:/Users/user/AppData/Local/Programs/Python/Python312 pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/vgg_service/Tests
                             
-                            pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/svm_service/Tests
+                            C:/Users/user/AppData/Local/Programs/Python/Python312 pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/svm_service/Tests
                         '''
                     }
                 }
