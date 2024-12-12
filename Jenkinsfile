@@ -33,11 +33,8 @@ pipeline {
 
                         '''
                     } else {
-                        bat 'C:/Users/Administrator/AppData/Local/Programs/Python/Python312/python.exe -m pytest C:/Users/user/AppData/Local/Programs/Python/Python312 pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/vgg_service/Tests > result.log
-'
-                            
+                        bat 'C:/Users/Administrator/AppData/Local/Programs/Python/Python312/python.exe -m pytest C:/Users/user/AppData/Local/Programs/Python/Python312 pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/vgg_service/Tests > result.log'
                         bat 'C:/Users/Administrator/AppData/Local/Programs/Python/Python312/python.exe -m pytest C:/Users/user/Desktop/3emeanneeEnsit/ML/Music_classification_Mini_projet/Backend/svm_service/Tests'
-                        
                     }
                 }
             }
