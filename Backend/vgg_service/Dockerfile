@@ -8,7 +8,7 @@ ENV PYTHONUNBUFFERED=1
 # Set the working directory in the container
 WORKDIR /app
 
-# Install system dependencies (for TensorFlow, etc.)
+# Install system dependencies 
 RUN apt-get update && apt-get install -y \
     libsndfile1 \
     && rm -rf /var/lib/apt/lists/*
@@ -19,13 +19,13 @@ COPY requirements.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install pytest for testing (optional, if tests are to be run in the container)
+# Install pytest for testing 
 RUN pip install --no-cache-dir pytest
 
 # Copy the entire Flask application into the container
 COPY . .
 
-# Expose the port the app will run on (default is 5000)
+# Expose the port 
 EXPOSE 5000
 
 # Set environment variable to indicate Flask is in production

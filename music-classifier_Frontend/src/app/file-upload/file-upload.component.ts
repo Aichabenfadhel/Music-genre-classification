@@ -26,7 +26,7 @@ export class FileUploadComponent {
       this.audioService.uploadAudio(this.selectedFile).subscribe({
         next: (response) => {
           console.log(response);
-          this.predictedGenre = response.genre; // Assuming `response.genre` holds the predicted genre
+          this.predictedGenre = response.genre; 
         },
         error: (error) => {
           console.error('Error:', error);

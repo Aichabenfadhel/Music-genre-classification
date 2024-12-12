@@ -1,4 +1,4 @@
-// src/app/vgg/vgg.component.ts
+
 import { Component } from '@angular/core';
 import { VggService } from '../vgg.service';
 import { FormsModule } from '@angular/forms';
@@ -22,7 +22,7 @@ export class VggComponent {
 
   onFileChange(event: any): void {
     this.selectedFile = event.target.files[0];
-    this.errorMessage = null;  // Reset error message when a new file is selected
+    this.errorMessage = null;  
   }
 
   onSubmit(): void {

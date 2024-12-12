@@ -1,30 +1,29 @@
 <div class="upload-container">
-  <!-- Back Button -->
+  
   <button routerLink="/" class="btn btn-back">Back to Home</button>
 
-  <!-- Title -->
+ 
   <h2 class="title">Upload Audio for Genre Prediction</h2>
 
-  <!-- File Upload Input -->
+  
   <div class="file-input-container">
     <label for="file-upload" class="file-label">Choose Audio File</label>
     <input type="file" accept="audio/*" id="file-upload" (change)="onFileChange($event)" class="file-input" />
   </div>
 
-  <!-- Submit Button -->
+  
   <button (click)="onSubmit()" [disabled]="loading" class="btn btn-upload">Submit</button>
 
-  <!-- Loading Spinner -->
+ 
   <div *ngIf="loading" class="loading-spinner">
     <p>Processing...</p>
   </div>
 
-  <!-- Prediction Result -->
+ 
   <div *ngIf="predictionResult" class="result">
     <h3>Predicted Genre: {{predictionResult.predicted_genre}}</h3>
   </div>
 
-  <!-- Error Message -->
   <div *ngIf="errorMessage" class="error-message">
     <p>{{ errorMessage }}</p>
   </div>
