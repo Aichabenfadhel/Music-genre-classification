@@ -28,13 +28,15 @@ pipeline {
                     if (isUnix()) {
                         sh '''
                             
-                            pytest /app/Backend/vgg_service/Tests
-                            pytest /app/Backend/svm_service/Tests
+                            pytest Backend/vgg_service/Tests
+                            pytest Backend/svm_service/Tests
 
                         '''
                     } else {
-                        bat 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m pytest /Music_classification_Mini_projet/Backend/vgg_service/Tests > result.log'
-                        bat 'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python312\\python.exe -m pytest /Music_classification_Mini_projet/Backend/svm_service/Tests > result.log'
+                        """
+                            pytest Backend\\vgg_service\\Tests
+                            pytest Backend\\svm_service\\Tests
+                        """
                     }
                 }
             }
